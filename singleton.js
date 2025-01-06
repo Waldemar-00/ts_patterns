@@ -24,7 +24,7 @@ class Singleton {
     }
 }
 _a = Singleton;
-_Singleton_instance = { value: void 0 };
+_Singleton_instance = { value: void 0 }; //! private
 const myMap = Singleton.getInstance().dmap.set(1, 'Singleton instance');
 console.log(myMap);
 class Service_1 {
