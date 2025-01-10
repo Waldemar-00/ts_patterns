@@ -1,5 +1,5 @@
 "use strict";
-class AbstractMiddleware {
+class AbstractMethods {
     next(mid) {
         this.nextMiddleware = mid;
         return mid;
@@ -11,7 +11,7 @@ class AbstractMiddleware {
         console.log('Change calling sequence!');
     }
 }
-class AuthMiddleware extends AbstractMiddleware {
+class AuthMiddleware extends AbstractMethods {
     handle(req) {
         console.log('Auth middleware');
         if (req.userId === 1) {
@@ -20,7 +20,7 @@ class AuthMiddleware extends AbstractMiddleware {
         console.log('You do not pass the auth!');
     }
 }
-class ValidateMiddleware extends AbstractMiddleware {
+class ValidateMiddleware extends AbstractMethods {
     handle(req) {
         console.log('Validate middleware');
         if (req.body) {
@@ -29,7 +29,7 @@ class ValidateMiddleware extends AbstractMiddleware {
         console.log('Your request do not have the body!');
     }
 }
-class Controller extends AbstractMiddleware {
+class Controller extends AbstractMethods {
     handle(req) {
         console.log('Controller!!!Success');
         return req;

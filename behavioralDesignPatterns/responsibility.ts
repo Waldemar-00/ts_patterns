@@ -4,7 +4,7 @@ interface IMiddleware
     handle(request: any): any
 }
 
-abstract class AbstractMiddleware implements IMiddleware
+abstract class AbstractMethods implements IMiddleware
 {
     private nextMiddleware!: IMiddleware
 
@@ -24,7 +24,7 @@ abstract class AbstractMiddleware implements IMiddleware
 
 }
 
-class AuthMiddleware extends AbstractMiddleware
+class AuthMiddleware extends AbstractMethods
 {
     override handle ( req: any ): any
     {
@@ -37,7 +37,7 @@ class AuthMiddleware extends AbstractMiddleware
     }
 }
 
-class ValidateMiddleware extends AbstractMiddleware
+class ValidateMiddleware extends AbstractMethods
 {
     override handle ( req: any ): any
     {
@@ -50,7 +50,7 @@ class ValidateMiddleware extends AbstractMiddleware
     }
 }
 
-class Controller extends AbstractMiddleware
+class Controller extends AbstractMethods
 {
     override handle ( req: any ): any
     {
